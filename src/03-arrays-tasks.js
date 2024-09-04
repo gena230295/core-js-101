@@ -491,8 +491,8 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return [...new Set(arr)];
 }
 
 /**
@@ -580,8 +580,13 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const headArr = arr.slice(0, Math.ceil(arr.length / 2));
+  const tailArr = arr.slice(Math.ceil(arr.length / 2), arr.length);
+  const lengthDiff = headArr.length - tailArr.length;
+  const middleArr = headArr.splice(headArr.length - 1, lengthDiff);
+  const fullArr = tailArr.concat(middleArr, headArr);
+  return fullArr;
 }
 
 module.exports = {
