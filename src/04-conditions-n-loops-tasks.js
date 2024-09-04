@@ -50,24 +50,22 @@ function getFizzBuzz(num) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  const arr = [];
+  for (let i = 1; i <= n; i += 1) {
+    arr.push(i);
+  }
+  const newArr = arr.reduce((a, b) => a * b, 1);
+  return newArr;
 }
 
-/**
- * Returns the sum of integer numbers between n1 and n2 (inclusive).
- *
- * @param {number} n1
- * @param {number} n2
- * @return {number}
- *
- * @example:
- *   1,2   =>  3  ( = 1+2 )
- *   5,10  =>  45 ( = 5+6+7+8+9+10 )
- *   -1,1  =>  0  ( = -1 + 0 + 1 )
- */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  const arr = [];
+  for (let i = n1; i <= n2; i += 1) {
+    arr.push(i);
+  }
+  const newArr = arr.reduce((a, b) => a + b, 0);
+  return newArr;
 }
 
 /**
@@ -85,8 +83,11 @@ function getSumBetweenNumbers(/* n1, n2 */) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  if (a + b > c && a + c > b && b + c > a) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -166,8 +167,19 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  for (let i = 0; i < str.length; i += 1) {
+    const arr = [];
+    for (let s = 0; s < str.length; s += 1) {
+      if (str[i] === str[s]) {
+        arr.push(1);
+      }
+    }
+    if (arr.length === 1) {
+      return str[i];
+    }
+  }
+  return null;
 }
 
 /**
@@ -208,8 +220,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const arr = [];
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    arr.push(str[i]);
+  }
+  return arr.join('');
 }
 
 /**
@@ -224,8 +240,14 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  const str = String(num);
+  const arr = [];
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    arr.push(str[i]);
+  }
+  const reverseNum = arr.join('');
+  return Number(reverseNum);
 }
 
 /**
